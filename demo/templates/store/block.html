@@ -23,24 +23,24 @@
 						<ul class="dropdown-menu">
 							<li><a href="{% url 'store:login' %}">登录 </a></li>
 							<li><a href="{% url 'store:signup' %}">注册</a></li>
-							<li><a href="login.html">订单</a></li>
-							<li><a href="login.html">钱包</a></li>
+							<li><a href="#">订单</a></li>
+							<li><a href="#">钱包</a></li>
 						</ul> 
 					</li> 
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日优惠<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">现金返回优惠</a></li>
-							<li><a href="offers.html">产品折扣</a></li>
-							<li><a href="offers.html">特别优惠</a></li>
+							<li><a href="{% url 'store:offers' %}">现金返回优惠</a></li>
+							<li><a href="{% url 'store:offers' %}">产品折扣</a></li>
+							<li><a href="{% url 'store:offers' %}">特别优惠</a></li>
 						</ul> 
 					</li> 
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 礼品卡<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">产品礼品卡</a></li>
-							<li><a href="offers.html">场合注册</a></li>
-							<li><a href="offers.html">查看余额</a></li>
+							<li><a href="{% url 'store:offers' %}">产品礼品卡</a></li>
+							<li><a href="{% url 'store:offers' %}">场合注册</a></li>
+							<li><a href="{% url 'store:offers' %}">查看余额</a></li>
 						</ul> 
 					</li> 
 					<li class="dropdown head-dpdn">
@@ -50,7 +50,7 @@
 						<a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 信用卡</a>
 					</li> 
 					<li class="dropdown head-dpdn">
-						<a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
+						<a href="{% url 'store:help' %}" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
 					</li>
 				</ul>
 			</div>
@@ -59,7 +59,7 @@
 		<div class="header-two"><!-- header-two -->
 			<div class="container">
 				<div class="header-logo">
-					<h1><a href="index.html"><span>S</span>mart <i>Bazaar</i></a></h1>
+					<h1><a href="{% url 'store:index' %}"><span>S</span>mart <i>Bazaar</i></a></h1>
 					<h6>你的商店. 你的地盘.</h6>
 				</div>	
 				<div class="header-search">
@@ -981,7 +981,7 @@
 							<li><a href="contact.html">联系我们</a></li>
 							<li><a href="login.html">返回</a></li>
 							<li><a href="faq.html">常见问题</a></li>
-							<li><a href="sitemap.html">网站地图</a></li>
+							<li><a href="{% url 'store:sitemap' %}">网站地图</a></li>
 							<li><a href="login.html">订单状态</a></li>
 						</ul> 
 					</div>
