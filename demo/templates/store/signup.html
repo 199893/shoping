@@ -1,5 +1,5 @@
 {% extends 'store/block.html' %}
-{% block title %} 登录 {% endblock %}
+{% block title %} 注册 {% endblock %}
 
 
 {% block script %}
@@ -70,23 +70,23 @@
 
 		});
 	</script>
-<script src="/static/js/bootstrap.js"></script>
 	<!-- //smooth-scrolling-of-move-up -->
+<script src="/static/js/bootstrap.js"></script>
 {% endblock %}
 
 
 
-
 {% block centre %}
-<!-- login-page -->
+<!-- sign up-page -->
 	<div class="login-page">
 		<div class="container">
-			<h3 class="w3ls-title w3ls-title1">用户登录</h3>
+			<h3 class="w3ls-title w3ls-title1">创建您的账号</h3>
 			<div class="login-body">
 				<form action="#" method="post">
-					<input type="text" class="user" name="email" placeholder="请输入用户名" required="">
+					<input type="text" class="user" name="name" placeholder="请输入用户名" required="">
+					<input type="text" class="user" name="email" placeholder="请输入邮箱" required="">
 					<input type="password" name="password" class="lock" placeholder="请输入密码" required="">
-					<input type="submit" value="登录">
+					<input type="submit" value="提交 ">
 					<div class="forgot-grid">
 						<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>记住账号</label>
 						<div class="forgot">
@@ -96,18 +96,8 @@
 					</div>
 				</form>
 			</div>
-			<h6> 非会员? <a href="{% url 'store:signup' %}">立刻注册 »</a> </h6>
-			<div class="login-page-bottom social-icons">
-				<h5>Recover your social account</h5>
-				<ul>
-					<li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-					<li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-					<li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-					<li><a href="#" class="fa fa-rss icon rss"> </a></li>
-				</ul>
-			</div>
+			<h6>已经拥有账号? <a href="{% url 'store:login' %}">现在登录 »</a> </h6>
 		</div>
 	</div>
-	<!-- //login-page -->
+	<!-- //sign up-page -->
 {% endblock %}

@@ -22,9 +22,9 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="{% url 'store:login' %}">登录 </a></li>
-							<li><a href="signup.html">注册</a></li>
-							<li><a href="login.html">订单</a></li>
-							<li><a href="login.html">钱包</a></li>
+							<li><a href="{% url 'store:signup' %}">注册</a></li>
+							<li><a href="{% url 'store:login' %}">订单</a></li>
+							<li><a href="{% url 'store:login' %}">钱包</a></li>
 						</ul> 
 					</li> 
 					<li class="dropdown head-dpdn">
@@ -59,7 +59,7 @@
 		<div class="header-two"><!-- header-two -->
 			<div class="container">
 				<div class="header-logo">
-					<h1><a href="index.html"><span>S</span>mart <i>Bazaar</i></a></h1>
+					<h1><a href="{% url 'store:index' %}"><span>S</span>mart <i>Bazaar</i></a></h1>
 					<h6>你的商店. 你的地盘.</h6>
 				</div>	
 				<div class="header-search">

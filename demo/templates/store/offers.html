@@ -1,6 +1,5 @@
 {% extends 'store/block.html' %}
-{% block title %} 登录 {% endblock %}
-
+{% block title %} 优惠界面 {% endblock %}
 
 {% block script %}
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
@@ -42,6 +41,7 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
 <!-- web-fonts -->
 <!-- start-smooth-scrolling -->
 <script type="text/javascript" src="/static/js/move-top.js"></script>
@@ -74,38 +74,49 @@
 	<!-- //smooth-scrolling-of-move-up -->
 {% endblock %}
 
-
-
-
 {% block centre %}
-<!-- login-page -->
-	<div class="login-page">
+<!-- offers-page -->
+	<div class="wthree-offers">
 		<div class="container">
-			<h3 class="w3ls-title w3ls-title1">用户登录</h3>
-			<div class="login-body">
-				<form action="#" method="post">
-					<input type="text" class="user" name="email" placeholder="请输入用户名" required="">
-					<input type="password" name="password" class="lock" placeholder="请输入密码" required="">
-					<input type="submit" value="登录">
-					<div class="forgot-grid">
-						<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>记住账号</label>
-						<div class="forgot">
-							<a href="#">忘记密码?</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</form>
+			<h3 class="w3ls-title w3ls-title1">Today's Offers & Gift Cards </h3>
+			<div class="w3ls-add-grids w3agile-add-products">
+				<a href="#">
+					<h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
+					<h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+				</a>
 			</div>
-			<h6> 非会员? <a href="{% url 'store:signup' %}">立刻注册 »</a> </h6>
-			<div class="login-page-bottom social-icons">
-				<h5>Recover your social account</h5>
-				<ul>
-					<li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-					<li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-					<li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-					<li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-					<li><a href="#" class="fa fa-rss icon rss"> </a></li>
-				</ul>
+			<div class="offer-card-row">
+				<div class="col-md-4 offer-card-grids">
+					<h4>20% Cashback </h4>
+					<p>Shop Using Gift Cards Get 20% Cashback</p>
+					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+				</div>
+				<div class="col-md-4 offer-card-grids">
+					<h4>Earn $20</h4>
+					<p>Refer a friend and earn $20 in Smart bazaar!</p>
+					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+				</div>
+				<div class="col-md-4 offer-card-grids">
+					<h4>10% Cashback </h4>
+					<p>Shop Using Credit Card Get 10% Cashback </p>
+					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="offer-bottom">
+				<div class="col-md-6 offer-bottom-grids">
+					<div class="offer-bottom-grids-info2">
+						<h4>Special Gift Cards</h4>
+						<h6>More brands, more ways to shop. <br> Check out these ideal gifts!</h6>
+					</div>
+				</div>
+				<div class="col-md-6 offer-bottom-grids">
+					<div class="offer-bottom-grids-info">
+						<h4>Flat $10 Discount</h4>
+						<h6>The best Shopping Offer <br> On Fashion Store</h6>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
 			</div>
 		</div>
 	</div>
