@@ -79,3 +79,7 @@ def contact(request):
 def faq(request):
     return render(request, 'store/faq.html')
 
+#信用卡
+def card(request):
+    return render(request,'store/card.html')
+	

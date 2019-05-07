@@ -19,5 +19,17 @@ urlpatterns = [
     url(r'^help/$',views.help,name='help'),
 
     url(r'^contact/$', views.contact, name='contact'),
-    url(r'^faq/$', views.faq, name='faq')
+    url(r'^faq/$', views.faq, name='faq'),
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	url(r'^card/$',views.card,name='card'),
+	
 ]
