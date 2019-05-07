@@ -15,8 +15,8 @@ def login(request):
 
 
 # 注册
-def signup(reqyest):
-    return render(reqyest,'store/signup.html')
+def signup(request):
+    return render(request,'store/signup.html')
 
 
 # 优惠界面
