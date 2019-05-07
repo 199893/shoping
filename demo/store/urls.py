@@ -11,4 +11,12 @@ urlpatterns = [
     url(r'^markerplace/$', views.marketplace, name="markerplace"),
     url(r'^values/$', views.values, name='values'),
     url(r'^privacy/$', views.privacy, name="privacy"),
+
+
+
+
+
+
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^faq/$', views.faq, name='faq')
 ]
