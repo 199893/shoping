@@ -4,5 +4,5 @@ from . import views
 app_name='store'
 urlpatterns = [
     url('^$',views.index,name='index'),
-    url('^a/$',views.a,name='a'),
+    url('^login/$',views.login,name='login'),
 ]

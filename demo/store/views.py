@@ -6,5 +6,5 @@ from django.http import HttpResponse,HttpResponseRedirect
 def index(request):
     return render(request,'store/index.html')
 
-def a(request):
-    return render(request,'store/block.html')
+def login(request):
+    return render(request,'store/login.html')
