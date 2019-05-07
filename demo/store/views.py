@@ -61,58 +61,6 @@ def privacy(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #网站地图
 def sitemap(request):
     return render(request,'store/sitemap.html')
@@ -121,3 +69,13 @@ def sitemap(request):
 #帮助
 def help(request):
     return render(request,'store/help.html')
+
+# 联系我们
+def contact(request):
+    return render(request, 'store/contact.html')
+
+
+# 常见问题
+def faq(request):
+    return render(request, 'store/faq.html')
+

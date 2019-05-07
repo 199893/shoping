@@ -15,44 +15,9 @@ urlpatterns = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     url(r'^sitemap/$',views.sitemap,name='sitemap'),
     url(r'^help/$',views.help,name='help'),
 
+    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^faq/$', views.faq, name='faq')
 ]
