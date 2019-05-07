@@ -83,3 +83,7 @@ def faq(request):
 def card(request):
     return render(request,'store/card.html')
 	
+#电子产品购物
+def products(request):
+    return render(request,'store/products.html')
+
