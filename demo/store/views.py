@@ -113,36 +113,6 @@ def privacy(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #网站地图
 def sitemap(request):
     return render(request,'store/sitemap.html')
