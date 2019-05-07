@@ -42,3 +42,13 @@ def values(request):
 # 隐私政策
 def privacy(request):
     return render(request, 'store/privacy.html')
+
+
+# 联系我们
+def contact(request):
+    return render(request, 'store/contact.html')
+
+
+# 常见问题
+def faq(request):
+    return render(request, 'store/faq.html')
