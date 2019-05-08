@@ -76,6 +76,8 @@ class Goods(models.Model):
     discount = models.FloatField(default=1)
     # 商品增加时间
     date = models.DateTimeField(auto_now_add=True)
+    #商品图片
+    img = models.ImageField(upload_to='goodsimg')
     #所属分类
     gmoregoods = models.ForeignKey(Moregoods,on_delete=models.CASCADE)
 
