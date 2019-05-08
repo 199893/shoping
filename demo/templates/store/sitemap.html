@@ -1,20 +1,20 @@
 {% extends 'store/block.html' %}
 {% block title %} 网站地图 {% endblock %}
-
+{% load static from staticfiles %}
 {% block script %}
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
-<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/static/css/animate.min.css" rel="stylesheet" type="text/css" media="all" /><!-- animation -->
-<link href="/static/css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet" type="text/css" media="all" /><!-- animation -->
+<link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
-<link href="/static/css/font-awesome.css" rel="stylesheet">
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
 <!-- //font-awesome icons -->
 <!-- js -->
-<script src="/static/js/jquery-2.2.3.min.js"></script>
+<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
 <!-- //js -->
 <!-- web-fonts -->
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -22,8 +22,8 @@
 <link href='https://fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
 <!-- web-fonts -->
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="/static/js/move-top.js"></script>
-<script type="text/javascript" src="/static/js/easing.js"></script>
+<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
@@ -48,7 +48,7 @@
 
 		});
 	</script>
-<script src="/static/js/bootstrap.js"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
 	<!-- //smooth-scrolling-of-move-up -->
 {% endblock %}
 
@@ -710,23 +710,23 @@
 				<h3 class="w3sitemap-title"><i class="fa fa-gears"></i>Smart Bazaar Services</h3>
 				<div class="col-md-4 sitemap-text-grids">
 					<ul>
-						<li><a href="marketplace.html">Marketplace</a></li>
-						<li><a href="values.html">Core Values</a></li>
+						<li><a href="{% url 'store:markerplace' %}">Marketplace</a></li>
+						<li><a href="{% url 'store:values' %}">Core Values</a></li>
 						<li><a href="privacy.html">Privacy Policy</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 sitemap-text-grids">
 					<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="login.html">Login</a></li>
+						<li><a href="{% url 'store:about' %}">About Us</a></li>
+						<li><a href="{% url 'store:contact' %}">Contact Us</a></li>
+						<li><a href="{% url 'store:login' %}">Login</a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 sitemap-text-grids">
 					<ul>
-						<li><a href="signup.html">Sign Up</a></li>
-						<li><a href="login.html">Order Status</a></li>
-						<li><a href="faq.html">FAQ</a></li>
+						<li><a href="{% url 'store:signup' %}">Sign Up</a></li>
+						<li><a href="{% url 'store:login' %}">Order Status</a></li>
+						<li><a href="{% url 'store:faq' %}">FAQ</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
