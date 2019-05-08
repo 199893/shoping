@@ -82,10 +82,12 @@
 		<div class="container">
 			<h3 class="w3ls-title w3ls-title1">创建您的账号</h3>
 			<div class="login-body">
-				<form action="#" method="post">
+				<form action="{% url 'store:signup' %}" method="post">
+                    {% csrf_token %}
 					<input type="text" class="user" name="name" placeholder="请输入用户名" required="">
 					<input type="text" class="user" name="email" placeholder="请输入邮箱" required="">
 					<input type="password" name="password" class="lock" placeholder="请输入密码" required="">
+					<input type="password" name="password2" class="lock" placeholder="请输入密码" required="">
 					<input type="submit" value="提交 ">
 					<div class="forgot-grid">
 						<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>记住账号</label>

@@ -20,6 +20,11 @@ urlpatterns = [
 
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^faq/$', views.faq, name='faq'),
+
+
+
+
+    url(r'^active/(.*?)/$',views.active,name='active'),
 	
 	
 	
