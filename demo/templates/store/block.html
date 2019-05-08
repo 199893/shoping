@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+{% load static from staticfiles %}
 <title>{% block title %} 电商平台 {% endblock %}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -59,7 +60,7 @@
 		<div class="header-two"><!-- header-two -->
 			<div class="container">
 				<div class="header-logo">
-					<h1><a href="{% url 'store:index' %}"><span>S</span>mart <i>Bazaar</i></a></h1>
+					<h1><a href="{% url 'store:index' %}"><span>V</span>mart <i>Bazaar</i></a></h1>
 					<h6>你的商店. 你的地盘.</h6>
 				</div>	
 				<div class="header-search">
@@ -72,7 +73,7 @@
 				</div>
 				<div class="header-cart"> 
 					<div class="my-account">
-						<a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> CONTACT US</a>						
+						<a href="{% url 'store:contact' %}"><i class="fa fa-map-marker" aria-hidden="true"></i> CONTACT US</a>
 					</div>
 					<div class="cart"> 
 						<form action="#" method="post" class="last"> 
@@ -90,11 +91,11 @@
 			<div class="container">
 				<div class="menu">
 					<div class="cd-dropdown-wrapper">
-						<a class="cd-dropdown-trigger" href="#0">商店类别</a>
+						<a class="cd-dropdown-trigger" href="#">商店类别</a>
 						<nav class="cd-dropdown"> 
-							<a href="#0" class="cd-close">Close</a>
+							<a href="#" class="cd-close">Close</a>
 							<ul class="cd-dropdown-content"> 
-								<li><a href="offers.html">Today's Offers</a></li>
+								<li><a href="{% url 'store:offers' %}">Today's Offers</a></li>
 								<li class="has-children">
 									<a href="#">Electronics</a> 
 									<ul class="cd-secondary-dropdown is-hidden">
@@ -105,7 +106,7 @@
 											<ul class="is-hidden"> 
 												<li class="go-back"><a href="#">All Electronics</a></li> 
 												<li class="has-children">
-													<a href="#0">SmartPhones</a> 
+													<a href="#">SmartPhones</a>
 													<ul class="is-hidden"> 
 														<li class="go-back"><a href="#"> </a></li>
 														<li><a href="products.html">Android</a></li>
@@ -155,10 +156,10 @@
 										<li class="has-children">
 											<a href="#">HOME APPLIANCES</a> 
 											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">All Electronics </a></li>
+												<li class="go-back"><a href="#">All Electronics </a></li>
 												<li class="has-children"><a href="#">Kitchen appliances</a>
 													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
+														<li class="go-back"><a href="#"> </a></li>
 														<li><a href="products.html">Rice Cookers</a></li>
 														<li><a href="products.html">Mixer Juicer</a></li>
 														<li><a href="products.html">Grinder</a></li>
@@ -859,14 +860,14 @@
 										</li> 
 									</ul><!-- .cd-secondary-dropdown --> 
 								</li>  
-								<li><a href="sitemap.html">Full Site Directory </a></li>  
+								<li><a href="{% url 'store:sitemap' %}">Full Site Directory </a></li>
 							</ul> <!-- .cd-dropdown-content -->
 						</nav> <!-- .cd-dropdown -->
 					</div> <!-- .cd-dropdown-wrapper -->	 
 				</div>
 				<div class="move-text">
 					<div class="marquee"><a href="{% url 'store:offers' %}"> 新品特惠，多买多送.... <span>每件商品额外享受10%的折扣 </span> <span> 免费使用15天，不满意免费退换...</span></a></div>
-					<script type="text/javascript" src="/static/js/jquery.marquee.min.js"></script>
+					<script type="text/javascript" src="{% static 'js/jquery.marquee.min.js' %}"></script>
 					<script>
 					  $('.marquee').marquee({ pauseOnHover: true });
 					  //@ sourceURL=pen.js
@@ -955,7 +956,7 @@
 			<div class="footer-info w3-agileits-info">
 				<div class="col-md-4 address-left agileinfo">
 					<div class="footer-logo header-logo">
-						<h2><a href="index.html"><span>S</span>mart <i>Bazaar</i></a></h2>
+						<h2><a href="{% url 'store:index' %}"><span>S</span>mart <i>Bazaar</i></a></h2>
 						<h6>你的商店 你的地盘</h6>
 					</div>
 					<ul>
@@ -1010,7 +1011,7 @@
 		</div>
 	</div> 
  	<!-- cart-js -->
-	<script src="/static/js/minicart.js"></script>
+	<script src="{% static 'js/minicart.js' %}"></script>
 	<script>
         w3ls.render();
 
@@ -1029,8 +1030,8 @@
     </script>  
 	<!-- //cart-js --> 
 	<!-- menu js aim -->
-	<script src="/static/js/jquery.menu-aim.js"> </script>
-	<script src="/static/js/main.js"></script> <!-- Resource jQuery -->
+	<script src="{% static 'js/jquery.menu-aim.js' %}"> </script>
+	<script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
 	<!-- //menu js aim --> 
 	<!-- Bootstrap core JavaScript
     ================================================== -->
