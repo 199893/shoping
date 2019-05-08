@@ -11,31 +11,13 @@ urlpatterns = [
     url(r'^markerplace/$', views.marketplace, name="markerplace"),
     url(r'^values/$', views.values, name='values'),
     url(r'^privacy/$', views.privacy, name="privacy"),
-
-
-
-
     url(r'^sitemap/$',views.sitemap,name='sitemap'),
     url(r'^help/$',views.help,name='help'),
-
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^faq/$', views.faq, name='faq'),
-
-
-
-
     url(r'^active/(.*?)/$',views.active,name='active'),
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	url(r'^card/$',views.card,name='card'),
 	url(r'^products/$',views.products,name='products'),
-    url(r'^single/$',views.single,name='single')
+    url(r'^single/$',views.single,name='single'),
+    url(r"^loginout/$", views.loginout, name="loginout"),
 ]
