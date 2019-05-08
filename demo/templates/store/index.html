@@ -1,23 +1,23 @@
 {% extends 'store/block.html' %}
 {% block title %} 首页 {% endblock %}
-
+{% load static from staticfiles %}
 
 {% block script %}
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
+{#<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);#}
+{#		function hideURLbar(){ window.scrollTo(0,1); } </script>#}
 <!-- Custom Theme files -->
-<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/static/css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
-<link href="/static/css/ken-burns.css" rel="stylesheet" type="text/css" media="all" /> <!-- banner slider -->
-<link href="/static/css/animate.min.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/static/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
+<link href="{% static 'css/ken-burns.css' %}" rel="stylesheet" type="text/css" media="all" /> <!-- banner slider -->
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
-<link href="/static/css/font-awesome.css" rel="stylesheet">
+<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
 <!-- //font-awesome icons -->
 <!-- js -->
-<script src="/static/js/jquery-2.2.3.min.js"></script>
+<script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
 <!-- //js -->
 <!-- web-fonts -->
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -25,7 +25,7 @@
 <link href='https://fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
 <!-- web-fonts -->
-<script src="/static/js/owl.carousel.js"></script>
+<script src="{% static 'js/owl.carousel.js' %}"></script>
 <script>
 $(document).ready(function() {
 	$("#owl-demo").owlCarousel({
@@ -38,7 +38,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-<script src="/static/js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+<script src="{% static 'js/jquery-scrolltofixed-min.js' %}" type="text/javascript"></script>
 <script>
     $(document).ready(function() {
 
@@ -60,8 +60,8 @@ $(document).ready(function() {
     });
 </script>
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="/static/js/move-top.js"></script>
-<script type="text/javascript" src="/static/js/easing.js"></script>
+<script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){
@@ -87,11 +87,11 @@ $(document).ready(function() {
 		});
 	</script>
 	<!-- //smooth-scrolling-of-move-up -->
-<script src="/static/js/bootstrap.js"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
 <!-- countdown.js -->
-	<script src="/static/js/jquery.knob.js"></script>
-	<script src="/static/js/jquery.throttle.js"></script>
-	<script src="/static/js/jquery.classycountdown.js"></script>
+	<script src="{% static 'js/jquery.knob.js' %}"></script>
+	<script src="{% static 'js/jquery.throttle.js' %}"></script>
+	<script src="{% static 'js/jquery.classycountdown.js' %}"></script>
 		<script>
 			$(document).ready(function() {
 				$('#countdown1').ClassyCountdown({
@@ -154,14 +154,14 @@ $(document).ready(function() {
 		<!-- Wrapper-for-Slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active"><!-- First-Slide -->
-				<img src="/static/images/5.jpg" alt="" class="img-responsive" />
+				<img src="{% static 'images/5.jpg' %}" alt="" class="img-responsive" />
 				<div class="carousel-caption kb_caption kb_caption_right">
 					<h3 data-animation="animated flipInX">Flat <span>50%</span> Discount</h3>
 					<h4 data-animation="animated flipInX">Hot Offer Today Only</h4>
 				</div>
 			</div>
 			<div class="item"> <!-- Second-Slide -->
-				<img src="/static/images/8.jpg" alt="" class="img-responsive" />
+				<img src="{% static 'images/8.jpg' %}" alt="" class="img-responsive" />
 				<div class="carousel-caption kb_caption kb_caption_right">
 					<h3 data-animation="animated fadeInDown">Our Latest Fashion Editorials</h3>
 					<h4 data-animation="animated fadeInUp">cupidatat non proident</h4>
@@ -169,7 +169,7 @@ $(document).ready(function() {
 			</div>
 
 			<div class="item"><!-- Third-Slide -->
-				<img src="/static/images/3.jpg" alt="" class="img-responsive"/>
+				<img src="{% static 'images/3.jpg' %}" alt="" class="img-responsive"/>
 				<div class="carousel-caption kb_caption kb_caption_center">
 					<h3 data-animation="animated fadeInLeft">End Of Season Sale</h3>
 					<h4 data-animation="animated flipInX">cupidatat non proident</h4>
@@ -188,7 +188,7 @@ $(document).ready(function() {
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-	<script src="/static/js/custom.js"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
 </div>
 <!-- //banner -->
 <div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
@@ -200,34 +200,34 @@ $(document).ready(function() {
 				<ul id="myTab" class=" nav-tabs" role="tablist">
 					<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" >
 						<i class="fa fa-laptop" aria-hidden="true"></i>
-						<h5>Electronics</h5>
+						<h5>电子产品</h5>
 					</a></li>
 					<li role="presentation"><a href="#carl" role="tab" id="carl-tab" data-toggle="tab">
 						<i class="fa fa-female" aria-hidden="true"></i>
-						<h5>Fashion</h5>
+						<h5>时尚</h5>
 					</a></li>
 					<li role="presentation"><a href="#james" role="tab" id="james-tab" data-toggle="tab">
 						<i class="fa fa-gift" aria-hidden="true"></i>
-						<h5>Photo & Gifts</h5>
+						<h5>照片 & 礼物</h5>
 					</a></li>
 					<li role="presentation"><a href="#decor" role="tab" id="decor-tab" data-toggle="tab">
 						<i class="fa fa-home" aria-hidden="true"></i>
-						<h5>Home Decor</h5>
+						<h5>居家必备</h5>
 					</a></li>
 					<li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab">
 						<i class="fa fa-motorcycle" aria-hidden="true"></i>
-						<h5>Sports</h5>
+						<h5>运动</h5>
 					</a></li>
 				</ul>
 				<div class="clearfix"> </div>
-				<h3 class="w3ls-title">Featured Products</h3>
+				<h3 class="w3ls-title">店家推荐！</h3>
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 						<div class="tabcontent-grids">
 							<div id="owl-demo" class="owl-carousel">
 								<div class="item">
 									<div class="glry-w3agile-grids agileits">
-										<a href="products.html"><img src="/static/images/e1.png" alt="img"></a>
+										<a href="products.html"><img src="{% static 'images/e1.png' %}" alt="img"></a>
 										<div class="view-caption agileits-w3layouts">
 											<h4><a href="products.html">Audio speaker</a></h4>
 											<p>Lorem ipsum dolor sit amet consectetur</p>
@@ -1025,7 +1025,7 @@ $(document).ready(function() {
 		<div class="add-products-row">
 			<div class="w3ls-add-grids">
 				<a href="products1.html">
-					<h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
+					<h4>排名前10的商品 <span>20%</span> 立减</h4>
 					<h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 				</a>
 			</div>
