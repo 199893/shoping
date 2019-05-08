@@ -32,4 +32,5 @@ urlpatterns = [
 	
 	url(r'^card/$',views.card,name='card'),
 	url(r'^products/$',views.products,name='products'),
+    url(r'^single/$',views.single,name='single')
 ]

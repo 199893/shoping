@@ -87,3 +87,5 @@ def card(request):
 def products(request):
     return render(request,'store/products.html')
 
+def single(request):
+    return render(request,'store/single.html')
