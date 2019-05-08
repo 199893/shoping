@@ -130,8 +130,9 @@ def privacy(request):
 
 #网站地图
 def sitemap(request):
+    class1=Commodity.objects.all()
     res = request.session.get('username')
-    return render(request,'store/sitemap.html', {"username": res})
+    return render(request,'store/sitemap.html', {"username": res},{'class1':class1})
 
 
 #帮助
