@@ -130,7 +130,7 @@
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="w3ls_item" value="{{ i3.goodsname }}" />
 									<input type="hidden" name="amount" value="{% widthratio i3.discount 1 i3.price %}" />
 									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 								</form>
