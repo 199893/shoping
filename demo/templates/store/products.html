@@ -123,30 +123,30 @@
 {#   如果没有打折不显示折扣价，上标     --------------------------------------------------------------------------------#}
                             {% if i3.discount != 1.0 %}
 							<div class="new-tag"><h6>{% widthratio i3.discount 1 100 %}%<br>Off</h6></div>
-                                <a href="single.html"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
+                                <a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text">
-								<h5><a href="single.html">{{ i3.goodsname }}</a></h5>
+								<h5><a href="{% url 'store:single' i.id %}">{{ i3.goodsname }}</a></h5>
 								<h6><del>${{ i3.price }}</del>{% widthratio i3.discount 1 i3.price %}$</h6>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="w3ls_item" value="{{ i3.goodsname }}" />
 									<input type="hidden" name="amount" value="{% widthratio i3.discount 1 i3.price %}" />
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 								</form>
 							</div>
 {#       结束之                         -----------------------------------------------------------------------------#}
                             {% else %}
-							<a href="single.html"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
+							<a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text">
-								<h5><a href="single.html">{{ i3.goodsname }}</a></h5>
+								<h5><a href="{% url 'store:single' i.id %}">{{ i3.goodsname }}</a></h5>
 								<h6> {% widthratio i3.discount 1 i3.price %}$</h6>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="w3ls_item" value="{{ i3.goodsname }}" />
 									<input type="hidden" name="amount" value="{{ i3.price }}" />
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 								</form>
 							</div>
                         {% endif %}
@@ -173,30 +173,30 @@
 {#   如果没有打折不显示折扣价，上标     --------------------------------------------------------------------------------#}
                             {% if i.discount != 1.0 %}
 							<div class="new-tag"><h6>{% widthratio i.discount 1 100 %}%<br>Off</h6></div>
-                                <a href="single.html"><img src="/static/goodsimg/{{ i.img.url }}" class="img-responsive" alt="img"></a>
+                                <a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i.img.url }}" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text">
-								<h5><a href="single.html">{{ i.goodsname }}</a></h5>
+								<h5><a href="{% url 'store:single' i.id %}">{{ i.goodsname }}</a></h5>
 								<h6><del>${{ i.price }}</del>{% widthratio i.discount 1 i.price %}$</h6>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="w3ls_item" value="{{ i.goodsname }}" />
 									<input type="hidden" name="amount" value="{% widthratio i.discount 1 i.price %}" />
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 								</form>
 							</div>
 {#       结束之                         -----------------------------------------------------------------------------#}
                             {% else %}
-							<a href="single.html"><img src="/static/goodsimg/{{ i.img.url }}" class="img-responsive" alt="img"></a>
+							<a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i.img.url }}" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text">
-								<h5><a href="single.html">{{ i.goodsname }}</a></h5>
+								<h5><a href="{% url 'store:single' i.id %}">{{ i.goodsname }}</a></h5>
 								<h6> {% widthratio i.discount 1 i.price %}$</h6>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="w3ls_item" value="{{ i.goodsname }}" />
 									<input type="hidden" name="amount" value="{{ i.price }}" />
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 								</form>
 							</div>
                         {% endif %}

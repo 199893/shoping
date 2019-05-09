@@ -74,6 +74,10 @@ class Goods(models.Model):
     price = models.IntegerField(default=0)
     #商品折扣
     discount = models.FloatField(default=1)
+    #商品简介
+    description = models.CharField(max_length=100,default='')
+    #商品描述
+    descriptions = models.TextField(default='')
     # 商品增加时间
     date = models.DateTimeField(auto_now_add=True)
     #商品图片
@@ -95,4 +99,16 @@ class Shoppingcart(models.Model):
     goods_id = models.ForeignKey(Goods,on_delete=models.CASCADE)
     #添加时间
     date = models.DateTimeField(auto_now_add=True)
+
+
+class Comment(models.Model):
+    """
+    用户评论模块
+    """
+    #用户id
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+    # 商品id
+    goods_id = models.ForeignKey(Goods, on_delete=models.CASCADE)
+    #评论内容
+    content = models.TextField()
 

@@ -1,4 +1,4 @@
-{% extends 'store/index.html' %}
+{% extends 'store/block.html' %}
 {% block title %} 网站地图 {% endblock %}
 {% load static from staticfiles %}
 {% block script %}
@@ -53,6 +53,7 @@
 {% endblock %}
 
 
+
 {% block centre %}
 <!-- site map -->
 	<div class="sitemap">
@@ -94,6 +95,7 @@
                 {% empty %}
                                 <h1>没有东西</h1>
                 {% endfor %}
+
 
 
 				</div>

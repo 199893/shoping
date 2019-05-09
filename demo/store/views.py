@@ -174,9 +174,10 @@ def products(request,id):
     res = request.session.get('username')
     return render(request,'store/products.html', {"username": res,'cls':cls,'cls1':cls1})
 
-def single(request):
+def single(request,id):
+    obj = Goods.objects.get(pk=id)
     res = request.session.get('username')
-    return render(request,'store/single.html', {"username": res})
+    return render(request,'store/single.html', {"username": res,"goodsid":obj})
 
 #查询所有小标签的商品
 def product(request,id):
