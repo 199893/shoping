@@ -32,7 +32,10 @@ def login(request):
         password=request.POST['password']
         try:
             res= User.objects.filter(email=email)[0]
+
+
             if check_password(password,res.password)==True and res.is_active==True:
+
                 request.session['username'] = res.username
                 return redirect(reverse('store:index'))
             elif password == res.password and res.is_active==False:
@@ -132,9 +135,11 @@ def privacy(request):
 
 #网站地图
 def sitemap(request):
-    class1=Commodity.objects.all()
+    asd = Classification.objects.all()
     res = request.session.get('username')
-    return render(request,'store/sitemap.html', {"username": res},{'class1':class1})
+    return render(request,'store/sitemap.html', {"username": res,'big':asd})
+
+
 
 
 #帮助
