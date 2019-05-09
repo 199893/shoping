@@ -264,7 +264,7 @@ $(document).ready(function() {
 										<div class="view-caption agileits-w3layouts" style="width: 270px;height: 300px">
 											<h4><a href="{% url 'store:single' i.id %}">{{ i.goodsname }}</a></h4>
 											<p>{{ i.description }}</p>
-											<h5><del>${% widthratio i.discount 1 i.price %}</del></h5>
+											<h5>${% widthratio i.discount 1 i.price %}</h5>
 											<form action="#" method="post">
 												<input type="hidden" name="cmd" value="_cart" />
 												<input type="hidden" name="add" value="1" />
@@ -275,8 +275,6 @@ $(document).ready(function() {
 										</div>
 									</div>
 								</div>
-
-
                                 {% empty %}
                                 <h2>没有东西</h2>
                                 {% endfor %}

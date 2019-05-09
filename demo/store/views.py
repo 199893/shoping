@@ -191,14 +191,16 @@ def card(request):
 	
 #电子产品购物
 def products(request,id):
-    cls=Classification.objects.get(pk=id)
-    cls1=cls.commodity_set.all()
+    cls=Commodity.objects.get(pk=id)
+    cls1=cls.moregoods_set.all()
     res = request.session.get('username')
     return render(request,'store/products.html', {"username": res,'cls':cls,'cls1':cls1})
 
 def single(request,id):
     obj = Goods.objects.get(pk=id)
-
+    # r =Moregoods.objects.get(pk=obj.gmoregoods)
+    ressa = obj.gmoregoods.gcommodify.moregoods_set
+    print(ressa,'++++++++++++++++++++++++')
     result = Goods.objects.all()
     a = []
     for i in range(7):
