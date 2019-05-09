@@ -111,7 +111,7 @@
 											        <a href="#">{{ class2.cname }}</a>
                                                     <ul class="is-hidden">
                                                         {% for class3 in class2.moregoods_set.all %}
-                                                        <li> <a href="products.html">{{ class3.mcommodity }}</a> </li>
+                                                        <li> <a href="{% url 'store:product' class3.id %}">{{ class3.mcommodity }}</a> </li>
                                                         {% endfor %}
 													</ul>
 

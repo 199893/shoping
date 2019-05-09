@@ -20,4 +20,5 @@ urlpatterns = [
 	url(r'^products/(\d+)/$',views.products,name='products'),
     url(r'^single/$',views.single,name='single'),
     url(r"^loginout/$", views.loginout, name="loginout"),
+    url(r"^product/(\d+)/$", views.product, name="product"),
 ]

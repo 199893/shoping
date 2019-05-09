@@ -105,39 +105,114 @@
 				</ol> 
 				<div class="clearfix"> </div>
 				<!-- //breadcrumbs -->
-
-                {% for i in cls.commodity_set.all %}
+{% if cls1 %}
+{#---------------------------------------------------------------------------------------------------------1#}
 				<div class="product-top">
-					<h4>{{ i.cname }}</h4>
+					<h4>{{ cls.classname }}</h4>
 					<div class="clearfix"> </div>
 				</div>
-                    {% for i2 in i.moregoods_set.all %}
-                            <div class="products-row" >
-                            {% for i3 in i2.goods_set.all %}
-                                <div class="col-md-3 product-grids" >
-                                    <div class="agile-products">
-                                        <div class="new-tag"><h6>50%<br>Off</h6></div>
-                                        <a href="single.html"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
-                                        <div class="agile-product-text">
-                                            <h5><a href="single.html">加入购物车</a></h5>
-                                            <h6><del>${{ i3.price }}</del> ${{ i3.discount }}</h6>
-                                            <form action="#" method="post">
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="w3ls_item" value="Audio speaker" />
-                                                <input type="hidden" name="amount" value="{{ i3.discount }}" />
-                                                <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                            <div class="clearfix"> </div>
-                            </div>
-                    {% endfor %}
+
+                <div class="products-row">
+                        {% for i in cls1 %}
+                        {% for i2 in i.moregoods_set.all %}
+                        {% for i3 in i2.goods_set.all %}
 
 
-                {% endfor %}
+                         <div class="col-md-3 product-grids" style="width: 196.25px;height: 237.25px">
+						<div class="agile-products">
+{#   如果没有打折不显示折扣价，上标     --------------------------------------------------------------------------------#}
+                            {% if i3.discount != 1.0 %}
+							<div class="new-tag"><h6>{% widthratio i3.discount 1 100 %}%<br>Off</h6></div>
+                                <a href="single.html"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
+							<div class="agile-product-text">
+								<h5><a href="single.html">{{ i3.goodsname }}</a></h5>
+								<h6><del>${{ i3.price }}</del>{% widthratio i3.discount 1 i3.price %}$</h6>
+								<form action="#" method="post">
+									<input type="hidden" name="cmd" value="_cart" />
+									<input type="hidden" name="add" value="1" />
+									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="amount" value="{% widthratio i3.discount 1 i3.price %}" />
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+								</form>
+							</div>
+{#       结束之                         -----------------------------------------------------------------------------#}
+                            {% else %}
+							<a href="single.html"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
+							<div class="agile-product-text">
+								<h5><a href="single.html">{{ i3.goodsname }}</a></h5>
+								<h6> {% widthratio i3.discount 1 i3.price %}$</h6>
+								<form action="#" method="post">
+									<input type="hidden" name="cmd" value="_cart" />
+									<input type="hidden" name="add" value="1" />
+									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="amount" value="{{ i3.price }}" />
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+								</form>
+							</div>
+                        {% endif %}
+						</div>
+					    </div>
+
+                      {% endfor %}
+                      {% endfor %}
+                      {% endfor %}
+                    <div class="clearfix"> </div>
+                </div>
+{#---------------------------------------------------------------------------------------------------------1#}
+{% elif goods %}
+{#---------------------------------------------------------------------------------------------------------2#}
+				<div class="product-top">
+					<h4>{{ goods.mcommodity }}</h4>
+					<div class="clearfix"> </div>
+				</div>
+
+                <div class="products-row">
+                        {% for i in goods.goods_set.all %}
+                         <div class="col-md-3 product-grids" style="width: 196.25px;height: 237.25px">
+						<div class="agile-products">
+{#   如果没有打折不显示折扣价，上标     --------------------------------------------------------------------------------#}
+                            {% if i.discount != 1.0 %}
+							<div class="new-tag"><h6>{% widthratio i.discount 1 100 %}%<br>Off</h6></div>
+                                <a href="single.html"><img src="/static/goodsimg/{{ i.img.url }}" class="img-responsive" alt="img"></a>
+							<div class="agile-product-text">
+								<h5><a href="single.html">{{ i.goodsname }}</a></h5>
+								<h6><del>${{ i.price }}</del>{% widthratio i.discount 1 i.price %}$</h6>
+								<form action="#" method="post">
+									<input type="hidden" name="cmd" value="_cart" />
+									<input type="hidden" name="add" value="1" />
+									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="amount" value="{% widthratio i.discount 1 i.price %}" />
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+								</form>
+							</div>
+{#       结束之                         -----------------------------------------------------------------------------#}
+                            {% else %}
+							<a href="single.html"><img src="/static/goodsimg/{{ i.img.url }}" class="img-responsive" alt="img"></a>
+							<div class="agile-product-text">
+								<h5><a href="single.html">{{ i.goodsname }}</a></h5>
+								<h6> {% widthratio i.discount 1 i.price %}$</h6>
+								<form action="#" method="post">
+									<input type="hidden" name="cmd" value="_cart" />
+									<input type="hidden" name="add" value="1" />
+									<input type="hidden" name="w3ls_item" value="Leather Jacket" />
+									<input type="hidden" name="amount" value="{{ i.price }}" />
+									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+								</form>
+							</div>
+                        {% endif %}
+						</div>
+					    </div>
+
+
+                      {% endfor %}
+                    <div class="clearfix"> </div>
+                </div>
+{#---------------------------------------------------------------------------------------------------------2#}
+{% else %}
+    <h1>对不起，请不要胡乱输入信息</h1>
+    <h1>没有数据</h1>
+{% endif %}
+
 
 				<!-- add-products --> 
 				<div class="w3ls-add-grids w3agile-add-products">
