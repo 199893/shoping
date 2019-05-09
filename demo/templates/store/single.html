@@ -3,6 +3,13 @@
 {% load static from staticfiles %}
 
 {% block script %}
+    <style type="text/css">
+    #poool:hover{
+        color: red;
+    }
+
+    </style>
+
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
@@ -153,7 +160,7 @@
 					</div>
 					<div class="col-md-6 single-top-right">
 						<h3 class="item_name">{{ goodsid.goodsname }}</h3>
-						<p>Processing Time: Item will be shipped out within 2-3 working days. </p>
+						<p>我们郑重承诺，无论你距离我们多么的远，我们的商品次日即达 </p>
 						<div class="single-rating">
 							<ul>
 {#   评论星星                        -------------------------------------------------------------------------#}
@@ -164,7 +171,16 @@
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 {#   评论星星end                        -------------------------------------------------------------------------#}
 								<li class="rating">{{ goodsid.comment_set.all.count }}条评论</li>
-								<li><a href="#">添加你的评论</a></li>
+								<li><p id="poool">添加你的评论</p></li>
+
+                                <script>
+                                    $(function () {
+                                        $("#poool").click(function () {
+                                            alert('你还没有购买，购买之后才能评论哦')
+                                        })
+                                    })
+                                </script>
+
 							</ul> 
 						</div>
 						<div class="single-price">
@@ -266,7 +282,7 @@
 			<!-- collapse-tabs -->
 {#                商品详情-------------------------------------------------------------------------------------------#}
 			<div class="collpse tabs">
-				<h3 class="w3ls-title">About this item</h3> 
+				<h3 class="w3ls-title">关于我们</h3>
 				<div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingOne">

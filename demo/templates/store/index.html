@@ -256,17 +256,21 @@ $(document).ready(function() {
 
                                 <div class="item">
 									<div class="glry-w3agile-grids agileits" style="width: 270px;height: 300px">
+                                        {% if i.discount != 1.0 %}
+                                        <div class="new-tag"><h6>{% widthratio i.discount 1 100 %}% <br> Off</h6></div>
+                                        {% else %}
+                                        {% endif %}
 										<a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i.img.url }}" alt="img"></a>
 										<div class="view-caption agileits-w3layouts" style="width: 270px;height: 300px">
 											<h4><a href="{% url 'store:single' i.id %}">{{ i.goodsname }}</a></h4>
 											<p>{{ i.description }}</p>
-											<h5>${{ i.price }}</h5>
+											<h5><del>${% widthratio i.discount 1 i.price %}</del></h5>
 											<form action="#" method="post">
 												<input type="hidden" name="cmd" value="_cart" />
 												<input type="hidden" name="add" value="1" />
 												<input type="hidden" name="w3ls_item" value="{{ i.goodsname }}" />
-												<input type="hidden" name="amount" value="{{ i.price }}" />
-												<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+												<input type="hidden" name="amount" value="{% widthratio i.discount 1 i.price %}" />
+												<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 											</form>
 										</div>
 									</div>
@@ -1065,6 +1069,8 @@ $(document).ready(function() {
 
 
 {% block sosuo %}
+
+
     <form action="{% url 'store:index' %}" method="post">
         {% csrf_token %}
         <input type="search" name="Search" placeholder="{{ a }}" required="">
@@ -1072,4 +1078,5 @@ $(document).ready(function() {
             <i class="fa fa-search" aria-hidden="true"> </i>
         </button>
     </form>
+
 {% endblock %}

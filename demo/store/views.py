@@ -41,8 +41,8 @@ def index(request):
         else:
             res = request.session.get('username')
             a = '请输入正确的类别'
-            return render(request, 'store/index.html', {'username': res, 'a': a})
-
+            # return render(request, 'store/index.html', {'username': res, 'a': a})
+            return redirect(reverse('store:index'),{'a':a})
 
 
 # 登录
