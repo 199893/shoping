@@ -159,9 +159,17 @@ def card(request):
 #电子产品购物
 def products(request,id):
     cls=Classification.objects.get(pk=id)
+    cls1=cls.commodity_set.all()
     res = request.session.get('username')
-    return render(request,'store/products.html', {"username": res,'cls':cls})
+    return render(request,'store/products.html', {"username": res,'cls':cls,'cls1':cls1})
 
 def single(request):
     res = request.session.get('username')
     return render(request,'store/single.html', {"username": res})
+
+#查询所有小标签的商品
+def product(request,id):
+    res = request.session.get('username')
+    goods = Moregoods.objects.get(pk=id)
+    return render(request,'store/products.html', {"username": res,"goods":goods})
+
