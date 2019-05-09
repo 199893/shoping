@@ -6,6 +6,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 #邮件加密模块
 from itsdangerous import TimedJSONWebSignatureSerializer as res,SignatureExpired
+from django.contrib.auth.hashers import make_password, check_password
+
 
 
 # Create your views here.
@@ -30,7 +32,10 @@ def login(request):
         password=request.POST['password']
         try:
             res= User.objects.filter(email=email)[0]
-            if password == res.password and res.is_active==True:
+
+
+            if check_password(password,res.password)==True and res.is_active==True:
+
                 request.session['username'] = res.username
                 return redirect(reverse('store:index'))
             elif password == res.password and res.is_active==False:
@@ -66,7 +71,7 @@ def signup(request):
                 if password==password2:
                     user.username=name
                     user.email=email
-                    user.password=password
+                    user.password=make_password(password)
                     user.save()
 
                     id = User.objects.get(email=email).id
@@ -132,7 +137,13 @@ def privacy(request):
 def sitemap(request):
     asd = Classification.objects.all()
     res = request.session.get('username')
+
+    # return render(request,'store/sitemap.html', {"username": res,'class1':class1})
+
     return render(request,'store/sitemap.html', {"username": res,'big':asd})
+
+
+
 
 
 #帮助
@@ -157,10 +168,20 @@ def card(request):
     return render(request,'store/card.html', {"username": res})
 	
 #电子产品购物
-def products(request):
+def products(request,id):
+    cls=Classification.objects.get(pk=id)
+    cls1=cls.commodity_set.all()
     res = request.session.get('username')
-    return render(request,'store/products.html', {"username": res})
+    return render(request,'store/products.html', {"username": res,'cls':cls,'cls1':cls1})
 
-def single(request):
+def single(request,id):
+    obj = Goods.objects.get(pk=id)
     res = request.session.get('username')
-    return render(request,'store/single.html', {"username": res})
+    return render(request,'store/single.html', {"username": res,"goodsid":obj})
+
+#查询所有小标签的商品
+def product(request,id):
+    res = request.session.get('username')
+    goods = Moregoods.objects.get(pk=id)
+    return render(request,'store/products.html', {"username": res,"goods":goods})
+

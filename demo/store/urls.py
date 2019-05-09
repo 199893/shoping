@@ -17,7 +17,8 @@ urlpatterns = [
     url(r'^faq/$', views.faq, name='faq'),
     url(r'^active/(.*?)/$',views.active,name='active'),
 	url(r'^card/$',views.card,name='card'),
-	url(r'^products/$',views.products,name='products'),
-    url(r'^single/$',views.single,name='single'),
+	url(r'^products/(\d+)/$',views.products,name='products'),
+    url(r'^single/(\d+)/$',views.single,name='single'),
     url(r"^loginout/$", views.loginout, name="loginout"),
+    url(r"^product/(\d+)/$", views.product, name="product"),
 ]
