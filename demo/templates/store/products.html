@@ -123,9 +123,9 @@
 {#   如果没有打折不显示折扣价，上标     --------------------------------------------------------------------------------#}
                             {% if i3.discount != 1.0 %}
 							<div class="new-tag"><h6>{% widthratio i3.discount 1 100 %}%<br>Off</h6></div>
-                                <a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
+                                <a href="{% url 'store:single' i3.id %}"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text">
-								<h5><a href="{% url 'store:single' i.id %}">{{ i3.goodsname }}</a></h5>
+								<h5><a href="{% url 'store:single' i3.id %}">{{ i3.goodsname }}</a></h5>
 								<h6><del>${{ i3.price }}</del>{% widthratio i3.discount 1 i3.price %}$</h6>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
@@ -137,9 +137,9 @@
 							</div>
 {#       结束之                         -----------------------------------------------------------------------------#}
                             {% else %}
-							<a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
+							<a href="{% url 'store:single' i3.id %}"><img src="/static/goodsimg/{{ i3.img.url }}" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text">
-								<h5><a href="{% url 'store:single' i.id %}">{{ i3.goodsname }}</a></h5>
+								<h5><a href="{% url 'store:single' i3.id %}">{{ i3.goodsname }}</a></h5>
 								<h6> {% widthratio i3.discount 1 i3.price %}$</h6>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />

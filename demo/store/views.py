@@ -15,12 +15,25 @@ from django.contrib.auth.hashers import make_password, check_password
 
 # 首页
 def index(request):
-    try:
-        res=request.session.get('username')
-        print(res)
-        return render(request, 'store/index.html',{'username':res})
-    except:
-        return render(request, 'store/index.html')
+    if request.method=='GET':
+        try:
+            res=request.session.get('username')
+            a='请输入商品类别'
+            print(res)
+            return render(request, 'store/index.html',{'username':res,'a':a})
+        except:
+            return render(request, 'store/index.html')
+    elif request.method=='POST':
+        search=request.POST['Search']
+        if Moregoods.objects.filter(mcommodity=search):
+            asd=Moregoods.objects.filter(mcommodity=search)[0].id
+
+            return redirect(reverse('store:product',args=[asd,]))
+            # return render(request,'')
+        else:
+            res = request.session.get('username')
+            a = '请输入正确的类别'
+            return render(request, 'store/index.html', {'username': res, 'a': a})
 
 
 # 登录
@@ -184,4 +197,6 @@ def product(request,id):
     res = request.session.get('username')
     goods = Moregoods.objects.get(pk=id)
     return render(request,'store/products.html', {"username": res,"goods":goods})
+
+
 
