@@ -15,18 +15,34 @@ import random
 
 # 首页
 def index(request):
-    result = Goods.objects.all()
-    a=[]
-    for i in range(7):
-        qwe = random.choices(result)
-        print(result)
-        a.append(qwe[0])
 
-    try:
-        res=request.session.get('username')
-        return render(request, 'store/index.html',{'username':res,'goods':a})
-    except:
-        return render(request, 'store/index.html',{'goods':a,})
+    
+
+    if request.method=='GET':
+        result = Goods.objects.all()
+        a=[]
+        for i in range(7):
+            qwe = random.choices(result)  
+            print(result)
+            a.append(qwe[0])
+
+        try:
+            res=request.session.get('username')
+            return render(request, 'store/index.html',{'username':res,'goods':a})
+        except:
+            return render(request, 'store/index.html',{'goods':a,})
+    elif request.method=='POST':
+        search=request.POST['Search']
+        if Moregoods.objects.filter(mcommodity=search):
+            asd=Moregoods.objects.filter(mcommodity=search)[0].id
+
+            return redirect(reverse('store:product',args=[asd,]))
+            # return render(request,'')
+        else:
+            res = request.session.get('username')
+            a = '请输入正确的类别'
+            return render(request, 'store/index.html', {'username': res, 'a': a})
+
 
 
 # 登录
@@ -197,4 +213,6 @@ def product(request,id):
     res = request.session.get('username')
     goods = Moregoods.objects.get(pk=id)
     return render(request,'store/products.html', {"username": res,"goods":goods})
+
+
 
