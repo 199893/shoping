@@ -105,7 +105,7 @@
                                     <li class="has-children">
                                         <a href="#">{{ class.classname }}</a>
                                         <ul class="cd-secondary-dropdown is-hidden">
-                                        <li class="see-all"><a href="products.html">All Electronics</a></li>
+                                        <li class="see-all"><a href="{% url 'store:products' class.id %}">All Electronics</a></li>
                                             {% for class2 in class.commodity_set.all %}
                                                 <li class="has-children">
 											        <a href="#">{{ class2.cname }}</a>
