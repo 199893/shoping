@@ -1,4 +1,4 @@
-{% extends 'store/about.html' %}
+{% extends 'store/index.html' %}
 {% block title %}商品详情{% endblock title %}
 {% load static from staticfiles %}
 
@@ -91,6 +91,11 @@
 	});
 </script>
 	<script src="{% static 'js/minicart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.marquee.min.js' %}"></script>
+        <script>
+          $('.marquee').marquee({ pauseOnHover: true });
+          //@ sourceURL=pen.js
+        </script>
 	<script>
         w3ls.render();
 
@@ -107,18 +112,21 @@
         	}
         });
     </script>
+
 	<!-- //cart-js -->
 	<!-- menu js aim -->
 	<script src="{% static 'js/jquery.menu-aim.js' %}"> </script>
 	<script src="{% static 'js/main.js' %}"></script> <!-- Resource jQuery -->
-<!-- //smooth-scrolling-of-move-up -->  
+<!-- //smooth-scrolling-of-move-up -->
+<script src="{% static 'js/custom.js' %}"></script>
+
 {% endblock script %}
 {% block centre %}
 	<!-- breadcrumbs --> 
 	<div class="container"> 
 		<ol class="breadcrumb breadcrumb1">
-			<li><a href="{% url 'store:index' %}">Home</a></li>
-			<li class="active">Single Page</li>
+			<li><a href="{% url 'store:index' %}">首页</a></li>
+			<li class="active">商品详情页</li>
 		</ol> 
 		<div class="clearfix"> </div>
 	</div>
@@ -223,147 +231,32 @@
 				</script>
 {#                推荐商品-------------------------------------------------------------------------------------------#}
 				<div id="owl-demo5" class="owl-carousel">
-					<div class="item">
-						<div class="glry-w3agile-grids agileits">
-							<div class="new-tag"><h6>20% <br> Off</h6></div>
-							<a href="products1.html"><img src="{% static 'images/f2.png' %}" alt="img"></a>
+                    {% for i in goods %}
+					<div class="item" style="width: 270px;height: 300px">
+						<div class="glry-w3agile-grids agileits" style="width: 270px;height: 300px">
+                            {% if i.discount != 1.0 %}
+							<div class="new-tag"><h6>{% widthratio i.discount 1 100 %}% <br> Off</h6></div>
+                            {% else %}
+                            {% endif %}
+							<a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i.img.url }}" alt="img"></a>
 							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products1.html">Women Sandal</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$20</h5>
+								<h4><a href="{% url 'store:single' i.id %}%">{{ i.goodsname }}</a></h4>
+								<p>{{ i.description }}</p>
+								<h5>${{ i.price }}</h5>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Women Sandal" /> 
-									<input type="hidden" name="amount" value="20.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+									<input type="hidden" name="w3ls_item" value="{{ i.goodsname }}" />
+									<input type="hidden" name="amount" value="{% widthratio i.discount 1 100 %}" />
+									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 								</form>
 							</div>        
 						</div> 
 					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products.html"><img src="{% static 'images/e4.png' %}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products.html">Digital Camera</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$80</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Digital Camera"/> 
-									<input type="hidden" name="amount" value="100.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div>  
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="products4.html"><img src="{% static 'images/s1.png' %}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products4.html">Roller Skates</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$180</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Roller Skates"/> 
-									<input type="hidden" name="amount" value="180.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products1.html"><img src="{% static 'images/f1.png' %}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products1.html">T Shirt</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$10</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="T Shirt" /> 
-									<input type="hidden" name="amount" value="10.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div>    
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="products6.html"><img src="{% static 'images/p1.png' %}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products6.html">Coffee Mug</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$14</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Coffee Mug" /> 
-									<input type="hidden" name="amount" value="14.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>20% <br> Off</h6></div>
-							<a href="products6.html"><img src="{% static 'images/p2.png' %}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products6.html">Teddy bear</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$20</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Teddy bear" /> 
-									<input type="hidden" name="amount" value="20.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products4.html"><img src="{% static 'images/s2.png' %}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products4.html">Football</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$70</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Football"/> 
-									<input type="hidden" name="amount" value="70.00"/>
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div> 
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>Sale</h6></div>
-							<a href="products3.html"><img src="{% static 'images/h1.png' %}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products3.html">Wall Clock</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$80</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Wall Clock" /> 
-									<input type="hidden" name="amount" value="80.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div> 
+                    {% empty %}
+                        <h2>没有商品推荐</h2>
+					{% endfor %}
+
 				</div>    
 			</div>
 {#                推荐商品end-------------------------------------------------------------------------------------------#}
