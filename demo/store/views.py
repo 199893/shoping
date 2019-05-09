@@ -13,7 +13,12 @@ from itsdangerous import TimedJSONWebSignatureSerializer as res,SignatureExpired
 
 # 首页
 def index(request):
-    return render(request,'store/index.html')
+    try:
+        res=request.session.get('username')
+        print(res)
+        return render(request, 'store/index.html',{'username':res})
+    except:
+        return render(request, 'store/index.html')
 
 
 # 登录
@@ -26,7 +31,8 @@ def login(request):
         try:
             res= User.objects.filter(email=email)[0]
             if password == res.password and res.is_active==True:
-                return HttpResponse('登录成功')
+                request.session['username'] = res.username
+                return redirect(reverse('store:index'))
             elif password == res.password and res.is_active==False:
                 return HttpResponse('账号未激活')
         except:
@@ -35,6 +41,12 @@ def login(request):
 
         return HttpResponse('密码错误')
 
+
+# 登出
+def loginout(request):
+    if request.method=="GET":
+        del request.session['username']
+    return redirect(reverse('store:index'))
 
 
 # 注册
@@ -88,73 +100,67 @@ def active(request,idstr):
 
 # 优惠界面
 def offers(request):
-    return render(request,'store/offers.html')
+    res = request.session.get('username')
+    return render(request,'store/offers.html', {'username': res})
 
 
 # 关于我们
 def about(request):
-    return render(request, 'store/about.html')
+    res = request.session.get('username')
+    return render(request, 'store/about.html', {"username": res})
 
 
 # 市井
 def marketplace(request):
-    return render(request, 'store/marketplace.html')
+    res = request.session.get('username')
+    return render(request, 'store/marketplace.html', {"username": res})
 
 
 # 核心价值
 def values(request):
-    return render(request, 'store/values.html')
+    res = request.session.get('username')
+    return render(request, 'store/values.html', {"username": res})
 
 
 # 隐私政策
 def privacy(request):
-    return render(request, 'store/privacy.html')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    res = request.session.get('username')
+    return render(request, 'store/privacy.html', {"username": res})
 
 
 #网站地图
 def sitemap(request):
-    return render(request,'store/sitemap.html')
+    asd = Classification.objects.all()
+    res = request.session.get('username')
+    return render(request,'store/sitemap.html', {"username": res,'big':asd})
 
 
 #帮助
 def help(request):
-    return render(request,'store/help.html')
+    res = request.session.get('username')
+    return render(request,'store/help.html', {"username": res})
 
 # 联系我们
 def contact(request):
-    return render(request, 'store/contact.html')
+    res = request.session.get('username')
+    return render(request, 'store/contact.html', {"username": res})
 
 
 # 常见问题
 def faq(request):
-    return render(request, 'store/faq.html')
+    res = request.session.get('username')
+    return render(request, 'store/faq.html', {"username": res})
 
 #信用卡
 def card(request):
-    return render(request,'store/card.html')
+    res = request.session.get('username')
+    return render(request,'store/card.html', {"username": res})
 	
 #电子产品购物
 def products(request):
-    return render(request,'store/products.html')
+    res = request.session.get('username')
+    return render(request,'store/products.html', {"username": res})
 
 def single(request):
-    return render(request,'store/single.html')
+    res = request.session.get('username')
+    return render(request,'store/single.html', {"username": res})
