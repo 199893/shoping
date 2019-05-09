@@ -1,4 +1,4 @@
-{% extends 'store/index.html' %}
+{% extends 'store/block.html' %}
 {% block title %} 网站地图 {% endblock %}
 {% load static from staticfiles %}
 {% block script %}
@@ -95,7 +95,6 @@
                 {% empty %}
                                 <h1>没有东西</h1>
                 {% endfor %}
-
 
 
 
