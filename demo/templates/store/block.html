@@ -68,23 +68,25 @@
 					<h6>你的商店. 你的地盘.</h6>
 				</div>	
 				<div class="header-search">
-					<form action="#" method="post">
+                    {% block sosuo %}
+                    <form action="#" method="post">
 						<input type="search" name="Search" placeholder="Search for a Product..." required="">
 						<button type="submit" class="btn btn-default" aria-label="Left Align">
 							<i class="fa fa-search" aria-hidden="true"> </i>
 						</button>
 					</form>
+                    {% endblock %}
 				</div>
 				<div class="header-cart"> 
 					<div class="my-account">
 						<a href="{% url 'store:contact' %}"><i class="fa fa-map-marker" aria-hidden="true"></i> CONTACT US</a>
 					</div>
-					<div class="cart"> 
-						<form action="#" method="post" class="last"> 
+					<div class="cart">
+                        <form action="#" method="post" class="last">
 							<input type="hidden" name="cmd" value="_cart" />
 							<input type="hidden" name="display" value="1" />
 							<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-						</form>  
+						</form>
 					</div>
 					<div class="clearfix"> </div> 
 				</div> 
