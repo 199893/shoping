@@ -83,10 +83,10 @@
 					<h3 class="w3sitemap-title"><i class="fa fa-mobile"></i> {{ q.classname }}</h3>
                 {% for i in q.commodity_set.all %}
                         <div class="col-md-3 sitemap-text-grids">
-                            <h5 class="sitemap-text-title"><a href="products.html">{{ i.cname }}</a></h5>
+                            <h5 class="sitemap-text-title"><a href="{% url 'store:products' i.id %}">{{ i.cname }}</a></h5>
                             <ul>
                                 {% for i2 in i.moregoods_set.all %}
-                                <li><a href="products.html">{{ i2.mcommodity }}</a></li>
+                                <li><a href="{% url 'store:product' i2.id %}">{{ i2.mcommodity }}</a></li>
                                     {% empty %}
                                     <h2>没有东西</h2>
                                 {% endfor %}

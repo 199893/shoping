@@ -7,7 +7,7 @@ from django.conf import settings
 #邮件加密模块
 from itsdangerous import TimedJSONWebSignatureSerializer as res,SignatureExpired
 from django.contrib.auth.hashers import make_password, check_password
-
+import random
 
 
 # Create your views here.
@@ -15,14 +15,22 @@ from django.contrib.auth.hashers import make_password, check_password
 
 # 首页
 def index(request):
+
+    
+
     if request.method=='GET':
+        result = Goods.objects.all()
+        a=[]
+        for i in range(7):
+            qwe = random.choices(result)  
+            print(result)
+            a.append(qwe[0])
+
         try:
             res=request.session.get('username')
-            a='请输入商品类别'
-            print(res)
-            return render(request, 'store/index.html',{'username':res,'a':a})
+            return render(request, 'store/index.html',{'username':res,'goods':a})
         except:
-            return render(request, 'store/index.html')
+            return render(request, 'store/index.html',{'goods':a,})
     elif request.method=='POST':
         search=request.POST['Search']
         if Moregoods.objects.filter(mcommodity=search):
@@ -34,6 +42,7 @@ def index(request):
             res = request.session.get('username')
             a = '请输入正确的类别'
             return render(request, 'store/index.html', {'username': res, 'a': a})
+
 
 
 # 登录
@@ -189,8 +198,15 @@ def products(request,id):
 
 def single(request,id):
     obj = Goods.objects.get(pk=id)
+
+    result = Goods.objects.all()
+    a = []
+    for i in range(7):
+        qwe = random.choices(result)
+        a.append(qwe[0])
+
     res = request.session.get('username')
-    return render(request,'store/single.html', {"username": res,"goodsid":obj})
+    return render(request,'store/single.html', {"username": res,"goodsid":obj,'goods':a})
 
 #查询所有小标签的商品
 def product(request,id):
