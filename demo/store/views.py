@@ -132,7 +132,7 @@ def privacy(request):
 def sitemap(request):
     class1=Commodity.objects.all()
     res = request.session.get('username')
-    return render(request,'store/sitemap.html', {"username": res},{'class1':class1})
+    return render(request,'store/sitemap.html', {"username": res,'class1':class1})
 
 
 #帮助
@@ -157,9 +157,10 @@ def card(request):
     return render(request,'store/card.html', {"username": res})
 	
 #电子产品购物
-def products(request):
+def products(request,id):
+    cls=Classification.objects.get(pk=id)
     res = request.session.get('username')
-    return render(request,'store/products.html', {"username": res})
+    return render(request,'store/products.html', {"username": res,'cls':cls})
 
 def single(request):
     res = request.session.get('username')
