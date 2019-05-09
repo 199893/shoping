@@ -137,13 +137,7 @@ def privacy(request):
 def sitemap(request):
     asd = Classification.objects.all()
     res = request.session.get('username')
-
-    # return render(request,'store/sitemap.html', {"username": res,'class1':class1})
-
     return render(request,'store/sitemap.html', {"username": res,'big':asd})
-
-
-
 
 
 #帮助
