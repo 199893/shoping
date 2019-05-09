@@ -6,6 +6,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 #邮件加密模块
 from itsdangerous import TimedJSONWebSignatureSerializer as res,SignatureExpired
+from django.contrib.auth.hashers import make_password, check_password
+
 
 
 # Create your views here.
@@ -30,7 +32,10 @@ def login(request):
         password=request.POST['password']
         try:
             res= User.objects.filter(email=email)[0]
-            if password == res.password and res.is_active==True:
+
+
+            if check_password(password,res.password)==True and res.is_active==True:
+
                 request.session['username'] = res.username
                 return redirect(reverse('store:index'))
             elif password == res.password and res.is_active==False:
@@ -66,7 +71,7 @@ def signup(request):
                 if password==password2:
                     user.username=name
                     user.email=email
-                    user.password=password
+                    user.password=make_password(password)
                     user.save()
 
                     id = User.objects.get(email=email).id
@@ -133,6 +138,8 @@ def sitemap(request):
     asd = Classification.objects.all()
     res = request.session.get('username')
     return render(request,'store/sitemap.html', {"username": res,'big':asd})
+
+
 
 
 #帮助

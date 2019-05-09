@@ -1,4 +1,4 @@
-{% extends 'store/block.html' %}
+{% extends 'store/index.html' %}
 {% block title %} 网站地图 {% endblock %}
 {% load static from staticfiles %}
 {% block script %}
@@ -53,7 +53,6 @@
 {% endblock %}
 
 
-
 {% block centre %}
 <!-- site map -->
 	<div class="sitemap">
@@ -63,19 +62,20 @@
 				<nav class="sitemap-tabs" data-spy="affix" data-offset-top="400">
 					<div  id="myNavbar">
 						<ul>
-							<li><a href="#w3sec1"><i class="fa fa-mobile"></i> Electronics</a></li>
-							<li><a href="#w3sec2"><i class="fa fa-slideshare"></i>Fashion Store</a></li>
-							<li><a href="#w3sec3"><i class="fa fa-child"></i> Kids Fashion & Toys</a></li>
-							<li><a href="#w3sec4"><i class="fa fa-home"></i> Home & Furniture</a></li>
-							<li><a href="#w3sec5"><i class="fa fa-futbol-o"></i>Sports & Fitness</a></li>
-							<li><a href="#w3sec6"><i class="fa fa-shopping-basket"></i> Grocery Store</a></li>
-							<li><a href="#w3sec7"><i class="fa fa-gift"></i> Photo, Gifts & Office</a></li>
-							<li><a href="#w3sec8"><i class="fa fa-medkit"></i> Health & Beauty</a></li>
-							<li><a href="#w3sec9"><i class="fa fa-car"></i> Automotive</a></li>
-							<li><a href="#w3sec10"><i class="fa fa-book"></i> Books, Music & Movies</a></li>
+							<li><a href="#w3sec1"><i class="fa fa-mobile"></i> 电子产品</a></li>
+							<li><a href="#w3sec2"><i class="fa fa-slideshare"></i>时装商店</a></li>
+							<li><a href="#w3sec3"><i class="fa fa-child"></i> 儿童时装及玩具</a></li>
+							<li><a href="#w3sec4"><i class="fa fa-home"></i> 家居，家具和庭院</a></li>
+							<li><a href="#w3sec5"><i class="fa fa-futbol-o"></i>运动，健身和户外</a></li>
+							<li><a href="#w3sec6"><i class="fa fa-shopping-basket"></i> 杂货店</a></li>
+							<li><a href="#w3sec7"><i class="fa fa-gift"></i> 照片，礼品和办公用品</a></li>
+							<li><a href="#w3sec8"><i class="fa fa-medkit"></i> 健康，美容和药房</a></li>
+							<li><a href="#w3sec9"><i class="fa fa-car"></i> 汽车</a></li>
+							<li><a href="#w3sec10"><i class="fa fa-book"></i> 书籍，音乐和电影</a></li>
 						</ul>
 					</div>
 				</nav>
+
                 {% for q in big %}
 				<div id="w3sec{{ q.id }}" class="container-fluid sitemap-text">
 					<h3 class="w3sitemap-title"><i class="fa fa-mobile"></i> {{ q.classname }}</h3>
@@ -93,6 +93,7 @@
                 {% empty %}
                                 <h1>没有东西</h1>
                 {% endfor %}
+
 				</div>
                 {% empty %}
                 <h2>没有东西</h2>
