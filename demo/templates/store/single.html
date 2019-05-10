@@ -187,14 +187,14 @@
                         <ul>{% if goodsid.discount != 1.0 %}
 								<li>{% widthratio goodsid.discount 1 goodsid.price %}$</li>
 								<li><del>{{ goodsid.price }}$</del></li>
-								<li><span class="w3off"> 限时{% widthratio goodsid.discount 1 10 %}折</span></li>
+								<li><span class="w3off"> 限时{% widthratio goodsid.discount 1 100 %} %</span>OFF</li>
                         {% else %}
                                 <li>{{ goodsid.price }}$</li>
 
 
                         {% endif %}
 								<li>上架日期：{{ goodsid.date }}</li>
-								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
+								<li><a href="{% url 'store:offers' %}"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
 							</ul>	
 						</div> 
 						<p class="single-price-text">{{ goodsid.descriptions }} </p>
@@ -249,7 +249,7 @@
 				</script>
 {#                推荐商品-------------------------------------------------------------------------------------------#}
 				<div id="owl-demo5" class="owl-carousel">
-                    {% for i in goods %}
+                    {% for i in more %}
 					<div class="item" style="width: 270px;height: 300px">
 						<div class="glry-w3agile-grids agileits" style="width: 270px;height: 300px">
                             {% if i.discount != 1.0 %}

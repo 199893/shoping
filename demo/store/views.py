@@ -20,17 +20,79 @@ def index(request):
 
     if request.method=='GET':
         result = Goods.objects.all()
-        a=[]
+        #电子产品
+        big = Classification.objects.all()
+        a = []
+        b = []
+        c = []
+        d = []
+        e = []
+        f =[]
+
+        g=[]
+        h=[]
+        j=[]
+        k=[]
+        l=[]
+        for i in big:
+            if i.id==1:
+                for qe in i.commodity_set.all():
+                    for qs in qe.moregoods_set.all():
+                        for ide in qs.goods_set.all():
+                            b.append(ide)
+
+            elif i.id == 2:
+                for qe in i.commodity_set.all():
+                    for qs in qe.moregoods_set.all():
+                        for ide in qs.goods_set.all():
+                            c.append(ide)
+            elif i.id ==3:
+                for qe in i.commodity_set.all():
+                    for qs in qe.moregoods_set.all():
+                        for ide in qs.goods_set.all():
+                            d.append(ide)
+            elif i.id==4:
+                for qe in i.commodity_set.all():
+                    for qs in qe.moregoods_set.all():
+                        for ide in qs.goods_set.all():
+                            e.append(ide)
+            elif i.id==5:
+                for qe in i.commodity_set.all():
+                    for qs in qe.moregoods_set.all():
+                        for ide in qs.goods_set.all():
+                            f.append(ide)
+
         for i in range(7):
-            qwe = random.choices(result)  
-            print(result)
+
+            q1 = random.choices(b)
+            g.append(q1)
+            if c != []:
+                q2 = random.choices(c)
+                h.append(q2[0])
+            if d != []:
+                q3 = random.choices(d)
+                j.append(q3[0])
+            if e != []:
+                q4 = random.choices(e)
+                k.append(q4[0])
+            if f != []:
+                q5 = random.choices(f)
+                l.append(q5[0])
+
+            qwe = random.choices(result)
             a.append(qwe[0])
+
 
         try:
             res=request.session.get('username')
-            return render(request, 'store/index.html',{'username':res,'goods':a})
+            return render(request, 'store/index.html',{'username':res,'goods':a,'fashion':h,'child':j,'home':k,'sport':l})
+            # return render(request, 'store/index.html',{'username':res,'goods':a})
         except:
-            return render(request, 'store/index.html',{'goods':a,})
+            # return render(request, 'store/index.html',{'goods':a,})
+            return render(request, 'store/index.html',{'goods':a,'fashion':h,'child':j,'home':k,'sport':l})
+
+
+
     elif request.method=='POST':
         search=request.POST['Search']
         if Moregoods.objects.filter(mcommodity=search):
@@ -193,22 +255,34 @@ def card(request):
 def products(request,id):
     cls=Commodity.objects.get(pk=id)
     cls1=cls.moregoods_set.all()
+    a = []
+    for i in cls1:
+        for e in i.goods_set.all():
+            print(e.discount,'++++++++++++++++')
+            a.append(e)
+
     res = request.session.get('username')
-    return render(request,'store/products.html', {"username": res,'cls':cls,'cls1':cls1})
+    return render(request,'store/products.html', {"username": res,'cls':cls,'cls1':a})
 
 def single(request,id):
     obj = Goods.objects.get(pk=id)
     # r =Moregoods.objects.get(pk=obj.gmoregoods)
-    ressa = obj.gmoregoods.gcommodify.moregoods_set
-    print(ressa,'++++++++++++++++++++++++')
+    s = []
+    ressa = obj.gmoregoods.gcommodify.moregoods_set.all()
+    for aa in ressa:
+        for aa2 in aa.goods_set.all():
+            s.append(aa2)
     result = Goods.objects.all()
     a = []
+    b=[]
     for i in range(7):
         qwe = random.choices(result)
         a.append(qwe[0])
-
+        we = random.choices(s)
+        b.append(we[0])
+    print(b)
     res = request.session.get('username')
-    return render(request,'store/single.html', {"username": res,"goodsid":obj,'goods':a})
+    return render(request,'store/single.html', {"username": res,"goodsid":obj,'goods':a,'more':b})
 
 #查询所有小标签的商品
 def product(request,id):
