@@ -505,19 +505,19 @@ $(document).ready(function() {
 	<div class="container">
 		<div class="add-products-row">
 			<div class="w3ls-add-grids">
-				<a href="products1.html">
+				<a href="{% url 'store:products' 1 %}">
 					<h4>排名前10的商品 <span>20%</span> 立减</h4>
 					<h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 				</a>
 			</div>
 			<div class="w3ls-add-grids w3ls-add-grids-mdl">
-				<a href="products1.html">
+				<a href="{% url 'store:products' 2 %}">
 					<h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>
 					<h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 				</a>
 			</div>
 			<div class="w3ls-add-grids w3ls-add-grids-mdl1">
-				<a href="products.html">
+				<a href="{% url 'store:products' 3 %}">
 					<h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>
 					<h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 				</a>
