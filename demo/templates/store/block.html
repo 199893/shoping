@@ -48,7 +48,7 @@
 						</ul> 
 					</li> 
 					<li class="dropdown head-dpdn">
-						<a href="contact.html" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 关于我们</a>
+						<a href="{% url 'store:contact' %}" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 关于我们</a>
 					</li> 
 					<li class="dropdown head-dpdn">
 						<a href="{% url 'store:card' %}" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 信用卡</a>
@@ -101,13 +101,13 @@
 						<nav class="cd-dropdown">
 							<a href="#0" class="cd-close">Close</a>
 							<ul class="cd-dropdown-content">
-                                <li><a href="offers.html">今日优惠</a></li>
+                                <li><a href="{% url 'store:offers' %}">今日优惠</a></li>
                                 {% getcategorys as asd %}
                                 {% for class in asd %}
                                     <li class="has-children">
                                         <a href="#">{{ class.classname }}</a>
                                         <ul class="cd-secondary-dropdown is-hidden">
-                                        <li class="see-all"><a href="{% url 'store:products' class.id %}">All Electronics</a></li>
+                                        <li class="see-all"><a href="{% url 'store:products' class.id %}">所有</a></li>
                                             {% for class2 in class.commodity_set.all %}
                                                 <li class="has-children">
 											        <a href="#">{{ class2.cname }}</a>

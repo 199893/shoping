@@ -78,28 +78,28 @@
 <!-- offers-page -->
 	<div class="wthree-offers">
 		<div class="container">
-			<h3 class="w3ls-title w3ls-title1">Today's Offers & Gift Cards </h3>
+			<h3 class="w3ls-title w3ls-title1">今日份的优惠卡 </h3>
 			<div class="w3ls-add-grids w3agile-add-products">
 				<a href="#">
-					<h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
+					<h4>排名前10的商品专享 <span>20%</span> 折扣</h4>
 					<h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
 				</a>
 			</div>
 			<div class="offer-card-row">
 				<div class="col-md-4 offer-card-grids">
-					<h4>20% Cashback </h4>
-					<p>Shop Using Gift Cards Get 20% Cashback</p>
-					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					<h4>20% 优惠卡 </h4>
+					<p>你在买任何东西的时候都可以使用</p>
+					<a href="{% url 'store:product' 1 %}">立即去买 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 				</div>
 				<div class="col-md-4 offer-card-grids">
-					<h4>Earn $20</h4>
-					<p>Refer a friend and earn $20 in Smart bazaar!</p>
-					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					<h4>赚 $20</h4>
+					<p>邀请你的朋友一起购物，可以获得20$现金!</p>
+					<a href="{% url 'store:product' 1 %}">前去看看 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 				</div>
 				<div class="col-md-4 offer-card-grids">
-					<h4>10% Cashback </h4>
-					<p>Shop Using Credit Card Get 10% Cashback </p>
-					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					<h4>10% 新人立减 </h4>
+					<p>如果你是新用户，那我们会免费赠送你10%优惠卡 </p>
+					<a href="{% url 'store:product' 1 %}">前去购买 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
