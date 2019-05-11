@@ -7,7 +7,7 @@ from django.conf import settings
 #邮件加密模块
 from itsdangerous import TimedJSONWebSignatureSerializer as res,SignatureExpired
 from django.contrib.auth.hashers import make_password, check_password
-import random
+import random,re
 
 
 # Create your views here.
@@ -290,7 +290,7 @@ def product(request,id):
     goods = Moregoods.objects.get(pk=id)
     return render(request,'store/products.html', {"username": res,"goods":goods})
 
-
+#搜索界面
 def search(request):
     content = request.POST["content"]
     a = []
@@ -303,6 +303,7 @@ def search(request):
         b.append(q)
 
     if a != b:
+
 
         from django.core import serializers
         res = serializers.serialize('json',res)

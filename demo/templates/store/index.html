@@ -637,7 +637,7 @@ $(document).ready(function() {
 
     <form action="{% url 'store:index' %}" method="post">
         {% csrf_token %}
-        <input type="search" name="Search" placeholder="{{ a }}" required="" id="searcher">
+        <input type="search" name="Search" placeholder="{{ a }}" required="">
         <button type="submit" class="btn btn-default" aria-label="Left Align">
             <i class="fa fa-search" aria-hidden="true"> </i>
         </button>

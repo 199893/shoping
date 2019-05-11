@@ -40,21 +40,21 @@
 </script>
 <!--flex slider-->
 <script src="{% static 'js/imagezoom.js' %}"></script>
-<!-- //js --> 
+<!-- //js -->
 <!-- web-fonts -->
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
-<!-- web-fonts --> 
-<!-- scroll to fixed--> 
+<!-- web-fonts -->
+<!-- scroll to fixed-->
 <script src="{% static 'js/jquery-scrolltofixed-min.js' %}" type="text/javascript"></script>
 <script>
     $(document).ready(function() {
 
         // Dock the header to the top of the window when scrolled past the banner. This is the default behaviour.
 
-        $('.header-two').scrollToFixed();  
+        $('.header-two').scrollToFixed();
         // previous summary up the page.
 
         var summaries = $('.summary');
@@ -63,19 +63,19 @@
             var next = summaries[i + 1];
 
             summary.scrollToFixed({
-                marginTop: $('.header-two').outerHeight(true) + 10, 
+                marginTop: $('.header-two').outerHeight(true) + 10,
                 zIndex: 999
             });
         });
     });
 </script>
-<!-- //scroll to fixed--> 
+<!-- //scroll to fixed-->
 <!-- start-smooth-scrolling -->
 <script type="text/javascript" src="{% static 'js/move-top.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/easing.js' %}"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
+			$(".scroll").click(function(event){
 				event.preventDefault();
 				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 			});
@@ -85,40 +85,27 @@
 <!-- smooth-scrolling-of-move-up -->
 <script type="text/javascript">
 	$(document).ready(function() {
-	
+
 		var defaults = {
 			containerID: 'toTop', // fading element id
 			containerHoverID: 'toTopHover', // fading element hover id
 			scrollSpeed: 1200,
-			easingType: 'linear' 
+			easingType: 'linear'
 		};
-		
+
 		$().UItoTop({ easingType: 'easeOutQuart' });
-		
+
 	});
 </script>
-	<script src="{% static 'js/minicart.js' %}"></script>
+
     <script type="text/javascript" src="{% static 'js/jquery.marquee.min.js' %}"></script>
         <script>
           $('.marquee').marquee({ pauseOnHover: true });
           //@ sourceURL=pen.js
         </script>
-	<script>
-        w3ls.render();
 
-        w3ls.cart.on('w3sb_checkout', function (evt) {
-        	var items, len, i;
 
-        	if (this.subtotal() > 0) {
-        		items = this.items();
 
-        		for (i = 0, len = items.length; i < len; i++) {
-        			items[i].set('shipping', 0);
-        			items[i].set('shipping2', 0);
-        		}
-        	}
-        });
-    </script>
 
 	<!-- //cart-js -->
 	<!-- menu js aim -->
@@ -129,26 +116,26 @@
 
 {% endblock script %}
 {% block centre %}
-	<!-- breadcrumbs --> 
-	<div class="container"> 
+	<!-- breadcrumbs -->
+	<div class="container">
 		<ol class="breadcrumb breadcrumb1">
 			<li><a href="{% url 'store:index' %}">首页</a></li>
 
 			<li class="active">商品详情页</li>
 
-		</ol> 
+		</ol>
 		<div class="clearfix"> </div>
 	</div>
 	<!-- //breadcrumbs -->
 	<!-- products -->
-	<div class="products">	 
+	<div class="products">
 		<div class="container">
 
     {% if goodsid %}
 {# -商品主页------------------------------------------------------------------------------- #}
 			<div class="single-page">
 				<div class="single-page-row" id="detail-21">
-					<div class="col-md-6 single-top-left">	
+					<div class="col-md-6 single-top-left">
 						<div class="flexslider">
 							<ul class="slides">
 								<li data-thumb="/static/goodsimg/{{ goodsid.img.url }}">
@@ -181,7 +168,7 @@
                                     })
                                 </script>
 
-							</ul> 
+							</ul>
 						</div>
 						<div class="single-price">
                         <ul>{% if goodsid.discount != 1.0 %}
@@ -195,12 +182,12 @@
                         {% endif %}
 								<li>上架日期：{{ goodsid.date }}</li>
 								<li><a href="{% url 'store:offers' %}"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
-							</ul>	
-						</div> 
+							</ul>
+						</div>
 						<p class="single-price-text">{{ goodsid.descriptions }} </p>
 						<form action="#" method="post">
 							<input type="hidden" name="cmd" value="_cart" />
-							<input type="hidden" name="add" value="1" /> 
+							<input type="hidden" name="add" value="1" />
 							<input type="hidden" name="w3ls_item" value="{{ goodsid.goodsname }}" />
 							<input type="hidden" name="amount" value="{% widthratio goodsid.discount 1 goodsid.price %}" />
 							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
@@ -208,7 +195,7 @@
 						<button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> 添加到心愿单</button>
 					</div>
 
-				   <div class="clearfix"> </div>  
+				   <div class="clearfix"> </div>
 				</div>
         {% else %}
         <h2>没有东西</h2>
@@ -216,14 +203,14 @@
 {# -------------------------------------------------------------------------------- #}
 
 
-				<div class="single-page-icons social-icons"> 
+				<div class="single-page-icons social-icons">
 					<ul>
 						<li><h4>分享到</h4></li>
 						<li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
 						<li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
 						<li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
 						<li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-						<li><a href="#" class="fa fa-rss icon rss"> </a></li> 
+						<li><a href="#" class="fa fa-rss icon rss"> </a></li>
 					</ul>
 				</div>
 			</div>
@@ -231,21 +218,21 @@
 
 			<!-- recommendations -->
 			<div class="recommend">
-				<h3 class="w3ls-title">Our Recommendations </h3> 
+				<h3 class="w3ls-title">Our Recommendations </h3>
 				<script>
-					$(document).ready(function() { 
+					$(document).ready(function() {
 						$("#owl-demo5").owlCarousel({
-					 
+
 						  autoPlay: 3000, //Set AutoPlay to 3 seconds
-					 
+
 						  items :4,
 						  itemsDesktop : [640,5],
 						  itemsDesktopSmall : [414,4],
 						  navigation : true
-					 
+
 						});
-						
-					}); 
+
+					});
 				</script>
 {#                推荐商品-------------------------------------------------------------------------------------------#}
 				<div id="owl-demo5" class="owl-carousel">
@@ -257,28 +244,28 @@
                             {% else %}
                             {% endif %}
 							<a href="{% url 'store:single' i.id %}"><img src="/static/goodsimg/{{ i.img.url }}" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
+							<div class="view-caption agileits-w3layouts">
 								<h4><a href="{% url 'store:single' i.id %}%">{{ i.goodsname }}</a></h4>
 								<p>{{ i.description }}</p>
 								<h5>${{ i.price }}</h5>
 								<form action="#" method="post">
 									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
+									<input type="hidden" name="add" value="1" />
 									<input type="hidden" name="w3ls_item" value="{{ i.goodsname }}" />
 									<input type="hidden" name="amount" value="{% widthratio i.discount 1 100 %}" />
 									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 								</form>
-							</div>        
-						</div> 
+							</div>
+						</div>
 					</div>
                     {% empty %}
                         <h2>没有商品推荐</h2>
 					{% endfor %}
 
-				</div>    
+				</div>
 			</div>
 {#                推荐商品end-------------------------------------------------------------------------------------------#}
-			<!-- //recommendations --> 
+			<!-- //recommendations -->
 			<!-- collapse-tabs -->
 {#                商品详情-------------------------------------------------------------------------------------------#}
 			<div class="collpse tabs">
@@ -302,7 +289,7 @@
 							<h4 class="panel-title">
 								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 									<i class="fa fa-info-circle fa-icon" aria-hidden="true"></i> 商品附加信息 <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
-								</a> 
+								</a>
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -346,18 +333,18 @@
 			</div>
 {#                商品详情end-------------------------------------------------------------------------------------------#}
 
-			<!-- //collapse --> 
-			<!-- offers-cards --> 
-			<div class="w3single-offers offer-bottom"> 
+			<!-- //collapse -->
+			<!-- offers-cards -->
+			<div class="w3single-offers offer-bottom">
 				<div class="col-md-6 offer-bottom-grids">
 					<div class="offer-bottom-grids-info2">
-						<h4>Special Gift Cards</h4> 
+						<h4>Special Gift Cards</h4>
 						<h6>More brands, more ways to shop. <br> Check out these ideal gifts!</h6>
 					</div>
 				</div>
 				<div class="col-md-6 offer-bottom-grids">
 					<div class="offer-bottom-grids-info">
-						<h4>Flat $10 Discount</h4> 
+						<h4>Flat $10 Discount</h4>
 						<h6>The best Shopping Offer <br> On Fashion Store</h6>
 					</div>
 				</div>
@@ -369,14 +356,35 @@
 	<!--//products-->
 {% endblock centre %}
 
-	<div class="copy-right"> 
+	<div class="copy-right">
 		<div class="container">
 			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
 		</div>
-	</div> 
+	</div>
 	<!-- cart-js -->
 
-	<!-- //menu js aim --> 
+	<!-- //menu js aim -->
 	<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster --> 
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+  {% block script1 %}
+
+        	<script>
+        w3ls.render();
+
+        w3ls.cart.on('w3sb_checkout', function (evt) {
+        	var items, len, i;
+
+        	if (this.subtotal() > 0) {
+        		items = this.items();
+
+        		for (i = 0, len = items.length; i < len; i++) {
+        			items[i].set('shipping', 0);
+        			items[i].set('shipping2', 0);
+        		}
+        	}
+        });
+    </script>
+{% endblock %}
