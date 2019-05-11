@@ -100,11 +100,6 @@ def index(request):
 
             return redirect(reverse('store:product',args=[asd,]))
             # return render(request,'')
-
-        # elif Goods.objects.filter(goodsname=search):
-        #     qwe=Goods.objects.filter(goodsname=search)[0].id
-        #
-        #     return redirect(reverse('store:single',args=[qwe,]))
         else:
             res = request.session.get('username')
             a = '请输入正确的类别'
@@ -309,6 +304,7 @@ def search(request):
 
     if a != b:
 
+
         from django.core import serializers
         res = serializers.serialize('json',res)
         # print(res,type(res))
@@ -317,4 +313,3 @@ def search(request):
         return HttpResponse(res)
     else:
         return HttpResponse('')
-    # return HttpResponse('123')

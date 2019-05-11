@@ -3,7 +3,6 @@
 {% load static from staticfiles %}
 
 {% block script %}
-
 {#<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);#}
 {#		function hideURLbar(){ window.scrollTo(0,1); } </script>#}
 <!-- Custom Theme files -->
@@ -638,7 +637,7 @@ $(document).ready(function() {
 
     <form action="{% url 'store:index' %}" method="post">
         {% csrf_token %}
-        <input type="search" name="Search" placeholder="{{ a }}" required="" id="searcher" class="ttt">
+        <input type="search" name="Search" placeholder="{{ a }}" required="">
         <button type="submit" class="btn btn-default" aria-label="Left Align">
             <i class="fa fa-search" aria-hidden="true"> </i>
         </button>
