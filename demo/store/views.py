@@ -291,4 +291,24 @@ def product(request,id):
     return render(request,'store/products.html', {"username": res,"goods":goods})
 
 
+def search(request):
+    content = request.POST["content"]
+    a = []
+    b=[]
+    asd = Goods.objects.all()
+    res = Goods.objects.all().filter(goodsname__startswith=content)
+    for i in asd:
+        a.append(i)
+    for q in res:
+        b.append(q)
 
+    if a != b:
+
+        from django.core import serializers
+        res = serializers.serialize('json',res)
+        # print(res,type(res))
+
+
+        return HttpResponse(res)
+    else:
+        return HttpResponse('')

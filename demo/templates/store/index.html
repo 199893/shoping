@@ -637,10 +637,42 @@ $(document).ready(function() {
 
     <form action="{% url 'store:index' %}" method="post">
         {% csrf_token %}
-        <input type="search" name="Search" placeholder="{{ a }}" required="">
+        <input type="search" name="Search" placeholder="{{ a }}" required="" id="searcher">
         <button type="submit" class="btn btn-default" aria-label="Left Align">
             <i class="fa fa-search" aria-hidden="true"> </i>
         </button>
     </form>
+    <ul id="lilili" class="qqq">
+
+    </ul>
+
+    <script>
+        $(function () {
+
+
+            $("#searcher").keyup(function () {
+                $("li").remove("#biubiubiu");
+                $.ajax({
+                    url:"/store/search/",
+                    type:"post",
+                    data:{
+                        "csrfmiddlewaretoken": $("input[name=csrfmiddlewaretoken]").val(),"content":$("#searcher").val()
+                    },
+                    success:function (data) {
+                        datas = JSON.parse(data);
+                        let a = 10;
+                        for(let i in datas){
+
+                            $("#lilili").append("<li id='biubiubiu' style='list-style:none;'><a style='position: absolute;color:red;font-size:18px;margin-top:"+a+"px;' href='/store/single/"+datas[i].pk+"/'>"+datas[i].fields.goodsname+"</a></li>");
+                            a+=20
+                        }
+
+                    }
+                })
+            })
+        })
+
+    </script>
+
 
 {% endblock %}
