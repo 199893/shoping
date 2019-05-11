@@ -137,3 +137,4 @@ DEFAULT_FROM_EMAIL = 'zzy0371 <18137128152@163.com>'
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/goodsimg')
 
 
+
